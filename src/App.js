@@ -1,11 +1,10 @@
-import React, { useState } from 'react'
+import React,{useState} from 'react'
 import SeleBox from './component/SelectBox'
 import { data } from './jsonData'
 
 
 const App = () => {
-    const [options, setoptions] = useState("")
-    console.log(options)
+const [options, setoptions] = useState("")
     const year = [...new Set(data.wallpapers.map(item => item.year))];
     const event = [...new Set(data.wallpapers.map(item => item.event))];
     const venue = [...new Set(data.wallpapers.map(item => item.venue))];
@@ -13,7 +12,7 @@ const App = () => {
     const competitor_state = [...new Set(data.wallpapers.map(item => item.competitor_state))];
     const match_result = [...new Set(data.wallpapers.map(item => item.match_result))];
     const category = [...new Set(data.wallpapers.map(item => item.category))];
-    const linksData = data.wallpapers.filter((data) => data.year === options || data.event === options || data.venue === options || data.competitor_name === options || data.competitor_state === options || data.match_result === options || data.category === options)
+const linksData=data.wallpapers.filter((data)=> data.year===options|| data.event===options ||  data.venue===options || data.competitor_name===options || data.competitor_state===options ||  data.match_result===options || data.category===options)
     return (
         <>
             <section>
@@ -26,8 +25,8 @@ const App = () => {
                             <SeleBox data={year} btnName='YEAR' setoptions={setoptions} />
                             <SeleBox data={event} btnName='EVENT' setoptions={setoptions} />
                             <SeleBox data={venue} btnName='VENUE' setoptions={setoptions} />
-                            <SeleBox data={competitor_name} btnName='COMPTITOR NAME' setoptions={setoptions} />
-                            <SeleBox data={competitor_state} btnName='COMPTITOR STATE' setoptions={setoptions} />
+                            <SeleBox data={competitor_name} btnName='COMPTITOR NAME' setoptions={setoptions}  />
+                            <SeleBox data={competitor_state} btnName='COMPTITOR STATE'setoptions={setoptions} />
                             <SeleBox data={match_result} btnName='MATCH RESULT' setoptions={setoptions} />
                             <SeleBox data={category} btnName='CATEGORY' setoptions={setoptions} />
 
@@ -59,18 +58,18 @@ const App = () => {
 
                     <div class="row">
 
-                        {
-                            linksData.map((data, idx) => <div class="col-sm-6 my-4" key={idx} >
-                                <iframe width="100%" height="315" src={data.video_url} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            </div>
+{
+linksData.map((data,idx)=><div class="col-sm-6 my-4" key={idx} >
+<iframe width="100%" height="315" src={data.video_url} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
 
-                            )
+)
 
-                        }
+}
 
 
 
-                        {/* 
+{/* 
                         <div class="col-sm-6 my-4">
                             <iframe width="100%" height="315" src="https://www.youtube.com/embed/s2NQhpFGIOg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
